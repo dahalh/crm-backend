@@ -10,7 +10,7 @@ Content-Type: application/json
     "address":"12222 sdds",
     "phone":123456789,
     "email":"a@a.com",
-    "password":"123456"
+    "password":"12345678"
 }
 
 
