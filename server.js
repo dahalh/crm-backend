@@ -17,9 +17,22 @@ app.use(helmet());
 import { dbConnect } from "./config/dbConnect.js";
 dbConnect();
 
+// routers
+import userRouter from "./src/routers/userRouter.js";
+import ticketRouter from "./src/routers/ticketRouter.js";
+app.use("/v1/user", userRouter);
+app.use("/v1/ticket", ticketRouter);
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "you have reached the admin api",
+  });
+});
+
+// error handling
 app.use((err, req, res, next) => {
   console.log(err);
-  res.status(err.status || 400);
+  res.status(err.status || 500);
   res.json({
     status: "error",
     message: err.message,

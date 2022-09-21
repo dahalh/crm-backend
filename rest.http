@@ -1,0 +1,17 @@
+### user router
+GET http://localhost:8000/v1/user
+### post
+POST http://localhost:8000/v1/user
+Content-Type: application/json
+
+{
+    "name":"Himanshu",
+    "company":"Company",
+    "address":"12222 sdds",
+    "phone":123456789,
+    "email":"a@a.com",
+    "password":"123456"
+}
+
+
+
