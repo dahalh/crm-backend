@@ -1,6 +1,6 @@
 ### user router
 GET http://localhost:8000/v1/user
-### post
+### register
 POST http://localhost:8000/v1/user
 Content-Type: application/json
 
@@ -9,6 +9,15 @@ Content-Type: application/json
     "company":"Company",
     "address":"12222 sdds",
     "phone":123456789,
+    "email":"a@a.com",
+    "password":"12345678"
+}
+
+### login
+POST http://localhost:8000/v1/user/login
+Content-Type: application/json
+
+{
     "email":"a@a.com",
     "password":"12345678"
 }
