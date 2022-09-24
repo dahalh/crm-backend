@@ -1,7 +1,11 @@
 import express from "express";
 import { getAllUsers, insertUser } from "../models/user/User.model.js";
 import { hashPassword, comparePassword } from "../helpers/bcryptHelper.js";
-import { createAccessJWT, createRefreshJWT } from "../helpers/jwtHelper.js";
+import {
+  createAccessJWT,
+  createRefreshJWT,
+  createJWTS,
+} from "../helpers/jwtHelper.js";
 
 const router = express.Router();
 
