@@ -60,15 +60,17 @@ router.post("/login", async (req, res, next) => {
       if (isMatched) {
         user.password = undefined;
 
-        const accessJWT = await createAccessJWT(user.email);
+        // const accessJWT = await createAccessJWT(user.email);
 
-        const refreshJWT = await createRefreshJWT(user.email);
+        // const refreshJWT = await createRefreshJWT(user.email);
+
+        const jwts = await createJWTS({ email: user.email });
 
         res.json({
           status: "success",
           message: "User logged in successfully",
-          accessJWT,
-          refreshJWT,
+          user,
+          ...jwts,
         });
         return;
       }
