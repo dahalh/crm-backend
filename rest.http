@@ -1,5 +1,6 @@
 ### user router
 GET http://localhost:8000/v1/user
+
 ### register
 POST http://localhost:8000/v1/user
 Content-Type: application/json
