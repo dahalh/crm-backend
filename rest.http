@@ -23,5 +23,9 @@ Content-Type: application/json
     "password":"12345678"
 }
 
+### get a user profile
+GET http://localhost:8000/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiYUBhLmNvbSJ9LCJpYXQiOjE2NjQxNjc5NzYsImV4cCI6MTY2NDE2ODg3Nn0.QKhhq4FbnbeQG3bieorpfJDjX9Rbwea5FsLyUyi76zE
+
 
 

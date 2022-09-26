@@ -6,14 +6,32 @@ import {
   createRefreshJWT,
   createJWTS,
 } from "../helpers/jwtHelper.js";
+import { userAuth } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router.all("/", (req, res, next) => {
+// get user profile
+router.get("/", userAuth, (req, res, next) => {
+  try {
+    let user = req.userInfo;
+
+    user.password = undefined;
+    user.refreshJWT = undefined;
+    res.json({
+      status: "success",
+      message: "GET got hit to the user router",
+      user,
+    });
+  } catch (error) {
+    next(error);
+  }
+  // try {
   //   res.json({
-  //     message: "return from user router",
+  //     message: req.userInfo,
   //   });
-  next();
+  // } catch (error) {
+  //   next(error);
+  // }
 });
 
 // register user
@@ -59,6 +77,7 @@ router.post("/login", async (req, res, next) => {
 
       if (isMatched) {
         user.password = undefined;
+        // user.refreshJWT = undefined;
 
         // const accessJWT = await createAccessJWT(user.email);
 
